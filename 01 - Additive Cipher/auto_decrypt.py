@@ -7,11 +7,10 @@ import additive_cypher
 
 
 # counts the characters in the input string and returns them in a dictionary
-def count_chars(string: str, alphabet: list):
-	char_count = {char: 0 for char in alphabet}
+def count_chars(string: str):
+	char_count = {}
 	for char in string:
-		if char in char_count:
-			char_count[char] += 1
+		char_count[char] = char_count[char] + 1 if char in char_count else 1
 	return char_count
 
 
