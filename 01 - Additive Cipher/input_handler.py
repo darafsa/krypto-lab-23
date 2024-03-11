@@ -34,11 +34,11 @@ def get_key(arg_id: int):
 
 # reads a file and returns the data
 def read(arg_id: int):
-	with open(get_input_file(arg_id), "r") as f:
+	with open(get_input_file(arg_id), "r", encoding="utf-8") as f:
 		return f.read()
 
 
 # writes a file with the specified content
 def write(arg_id: int, data: str):
-	with open(get_output_file(arg_id), "w") as f:
+	with open(get_output_file(arg_id), "w", encoding="utf-8") as f:
 		f.write(data)

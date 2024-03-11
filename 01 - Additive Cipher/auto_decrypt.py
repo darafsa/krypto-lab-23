@@ -6,7 +6,7 @@ import additive_cypher
 # example:	python auto_decrypt.py "sampleEncrypted.txt" "sampleEncrypted_auto_decrypted.txt"
 
 
-# counts the characters in a dictionary and returns them
+# counts the characters in the input string and returns them in a dictionary
 def count_chars(string: str, alphabet: list):
 	char_count = {char: 0 for char in alphabet}
 	for char in string:
