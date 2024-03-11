@@ -1,4 +1,4 @@
-# 01 Additive Cipher
+# 1. Additive Cipher
 
 ## How to use
 

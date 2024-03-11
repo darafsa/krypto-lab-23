@@ -1,4 +1,4 @@
-# 02 Vigenere Cipher
+# 2. Vigenere Cipher
 
 ## How to use
 
