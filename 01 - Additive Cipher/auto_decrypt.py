@@ -3,7 +3,7 @@ import additive_cypher
 
 # note:		input_files need to be stored in "./res/", output_files will be generated in "./out/"
 # usage: 	python auto_decrypt.py <input_file:str> <output_file:str>
-# example:	python auto_decrypt.py "sampleEncrypted.txt" "sampleEncrypted_decrypted.txt"
+# example:	python auto_decrypt.py "sampleEncrypted.txt" "sampleEncrypted_auto_decrypted.txt"
 
 
 # counts the characters in a dictionary and returns them

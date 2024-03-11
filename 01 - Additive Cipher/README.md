@@ -35,5 +35,5 @@ python auto_decrypt.py <input_file:str> <output_file:str>
 ```
 
 ```shell
-python auto_decrypt.py "sampleEncrypted.txt" "sampleEncrypted_decrypted.txt"
+python auto_decrypt.py "sampleEncrypted.txt" "sampleEncrypted_auto_decrypted.txt"
 ```
