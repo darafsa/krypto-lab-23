@@ -6,6 +6,7 @@ import additive_cypher
 # example:	python auto_decrypt.py "sampleEncrypted.txt" "sampleEncrypted_decrypted.txt"
 
 
+# counts the characters in a dictionary and returns them
 def count_chars(string: str, alphabet: list):
 	char_count = {char: 0 for char in alphabet}
 	for char in string:
@@ -14,6 +15,7 @@ def count_chars(string: str, alphabet: list):
 	return char_count
 
 
+# uses the most common character to calculate the most probable key of the text
 def calculate_key(encrypted_char: str, most_common_char: str):
 	return (ord(encrypted_char) - ord(most_common_char)) % 26
 
