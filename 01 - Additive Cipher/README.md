@@ -1,7 +1,5 @@
 # How to use
 
-## Important Note
-
 input_files need to be stored in "./res/", output_files will always be generated in "./out/"
 
 ## Encryption
