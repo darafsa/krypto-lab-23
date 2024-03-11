@@ -2,7 +2,7 @@ from input_handler import *
 import additive_cypher
 
 # note:		input_files need to be stored in "./res/", output_files will be generated in "./out/"
-# usage: 	python encrypt.py <input_file> <key> <output_file>
+# usage: 	python encrypt.py <input_file:str> <key:int> <output_file:str>
 # example:	python encrypt.py "Klartext_1.txt" 3 "Klartext_1_encrypted.txt"
 
 

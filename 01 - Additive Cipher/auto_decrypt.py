@@ -2,7 +2,7 @@ from input_handler import *
 import additive_cypher
 
 # note:		input_files need to be stored in "./res/", output_files will be generated in "./out/"
-# usage: 	python auto_decrypt.py <input_file> <output_file>
+# usage: 	python auto_decrypt.py <input_file:str> <output_file:str>
 # example:	python auto_decrypt.py "sampleEncrypted.txt" "sampleEncrypted_decrypted.txt"
 
 
