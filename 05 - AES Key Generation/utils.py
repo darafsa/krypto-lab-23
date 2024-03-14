@@ -16,6 +16,19 @@ def split_text_in_blocks(text: str, block_size: int):
 	return block_list
 
 
+# splits given data into smaller blocks which each are split into bytes
+def split_data_in_blocks(data: str, block_size: int):
+	# size of the block in hex format; e.g. 128 bit -> 32 hex letters
+	block_hex_size = int(block_size / 4)
+	# data is split into text blocks of 128 bit
+	blocks = [data[i:i + block_hex_size].ljust(block_hex_size, '0')
+           for i in range(0, len(data), block_hex_size)]
+	# each text block is then split into its hex bytes and is then converted into integers
+	byte_blocks = [[int(block[byte:byte + 2], 16)
+                 for byte in range(0, len(block), 2)] for block in blocks]
+	return byte_blocks
+
+
 # converts a string (e.g. "0110100") into binary data
 def string_to_binary(string: str, length: int):
 	return format(string, f"0{str(length)}b")

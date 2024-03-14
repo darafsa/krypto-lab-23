@@ -1,15 +1,5 @@
-
-# splits given data into smaller blocks which each are split into bytes
-def split_data_in_blocks(data: str, block_size: int):
-	# size of the block in hex format; e.g. 128 bit -> 32 hex letters
-	block_hex_size = int(block_size / 4)
-	# data is split into text blocks of 128 bit
-	blocks = [data[i:i + block_hex_size].ljust(block_hex_size, '0')
-           for i in range(0, len(data), block_hex_size)]
-	# each text block is then split into its hex bytes and is then converted into integers
-	byte_blocks = [[int(block[byte:byte + 2], 16)
-                 for byte in range(0, len(block), 2)] for block in blocks]
-	return byte_blocks
+import aes_keygen
+import utils
 
 
 # doubles a number by cycling to the left; stays in mod 8
@@ -119,10 +109,10 @@ def mix_columns_inv(data: list):
 
 
 # encrypts 128-bit blocks according to the AES standard
-def encrypt(data: str, key: str, sbox_data: str):
-	blocks = split_data_in_blocks(data, 128)
-	round_keys = split_data_in_blocks(key, 128)
-	sbox = split_data_in_blocks(sbox_data, 128 * 16)[0]
+def encrypt(data: str, key_data: str, sbox_data: str):
+	blocks = utils.split_data_in_blocks(data, 128)
+	round_keys = aes_keygen.generate_round_keys(key_data, sbox_data)
+	sbox = utils.split_data_in_blocks(sbox_data, 128 * 16)[0]
 
 	new_blocks = []
 	for block in blocks:
@@ -142,9 +132,9 @@ def encrypt(data: str, key: str, sbox_data: str):
 
 # decrypts 128-bit blocks according to the AES standard
 def decrypt(data: str, key: str, sbox_data: str):
-	blocks = split_data_in_blocks(data, 128)
-	round_keys = split_data_in_blocks(key, 128)
-	sbox = split_data_in_blocks(sbox_data, 128 * 16)[0]
+	blocks = utils.split_data_in_blocks(data, 128)
+	round_keys = utils.split_data_in_blocks(key, 128)
+	sbox = utils.split_data_in_blocks(sbox_data, 128 * 16)[0]
 
 	new_blocks = []
 	for block in blocks:
