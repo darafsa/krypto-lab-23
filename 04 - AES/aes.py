@@ -72,11 +72,8 @@ def sub_bytes(data: list, sbox: list):
 
 # moves each line i steps to the right
 def shift_rows(data: list):
-	# new_data = [None] * len(data)
 	for i in range(4):
 		data[i:16:4] = shift_array(data[i:16:4], i)
-	# for i in range(len(data)):
-	# 	data[i] = new_data[i]
 
 
 # moves each line i steps to the left

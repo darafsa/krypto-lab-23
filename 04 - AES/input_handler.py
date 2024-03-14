@@ -44,12 +44,13 @@ def read_file(path: str):
 		return f.read().replace(' ', '').replace('\n', '')
 
 
+# reads a file from the specified argument
+def read_data(arg_id: int):
+	data = read(arg_id)
+	return data.replace(' ', '').replace('\n', '')
+
+
 # writes a file with the specified content
 def write(arg_id: int, data: str):
 	with open(get_output_file(arg_id), "w", encoding="utf-8") as f:
 		f.write(data)
-
-
-def read_data(arg_id: int):
-	data = read(arg_id)
-	return data.replace(' ', '').replace('\n', '')
