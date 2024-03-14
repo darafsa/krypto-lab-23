@@ -55,7 +55,7 @@ def matrix_mult_vec(matrix: list, vector: list):
 
 # shifts array by n steps
 def shift_array(data: list, n: int):
-	return data[n:] + data[:n]
+	return data[-n:] + data[:-n]
 
 
 # xors round key to data
@@ -70,16 +70,16 @@ def sub_bytes(data: list, sbox: list):
 		data[byte] = sbox[data[byte]]
 
 
-# moves each line i steps to the right
+# moves each line i steps to the left
 def shift_rows(data: list):
 	for i in range(4):
-		data[i:16:4] = shift_array(data[i:16:4], i)
+		data[i:16:4] = shift_array(data[i:16:4], -i)
 
 
-# moves each line i steps to the left
+# moves each line i steps to the right
 def shift_rows_inv(data: list):
 	for i in range(4):
-		data[i:16:4] = shift_array(data[i:16:4], -i)
+		data[i:16:4] = shift_array(data[i:16:4], i)
 
 
 # mixes the columns of the data
