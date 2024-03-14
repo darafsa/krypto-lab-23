@@ -1,29 +1,34 @@
 import utils
+import aes
 
 
 # ecb encryption
 # encrypts each plain text block with the key
-def encrypt(plain_text: str, block_size: int, key: int):
-	cipher_text = ""
+def encrypt(data: str, key_data: str, sbox_data: str):
+	encrypted_data = []
+	round_keys = aes.generate_round_keys(key_data)
+	sbox = utils.split_data_in_blocks(sbox_data, 128 * 16)[0]
 
-	text_blocks = utils.split_text_in_blocks(plain_text, block_size)
+	blocks = utils.split_data_in_blocks(data, 128)
 
-	for text_block in text_blocks:
-		output_text = utils.block_cipher_encryption(key, text_block)
-		cipher_text += utils.string_to_binary(output_text, block_size)
+	for block in blocks:
+		output_data = aes.encrypt_block(block, round_keys, sbox)
+		encrypted_data.append(output_data)
 
-	return cipher_text[0:len(plain_text)]
+	return encrypted_data
 
 
 # ecb decryption
 # decrypts each cipher text block with the key
-def decrypt(cipher_text: str, block_size: int, key: int):
-	plain_text = ""
+def decrypt(data: str, key_data: str, sbox_data: str):
+	decrypted_data = []
+	round_keys = aes.generate_round_keys(key_data)
+	sbox = utils.split_data_in_blocks(sbox_data, 128 * 16)[0]
 
-	text_blocks = utils.split_text_in_blocks(cipher_text, block_size)
+	blocks = utils.split_data_in_blocks(data, 128)
 
-	for text_block in text_blocks:
-		output_text = utils.block_cipher_decryption(key, text_block)
-		plain_text += utils.string_to_binary(output_text, block_size)
+	for block in blocks:
+		output_data = aes.decrypt_block(block, round_keys, sbox)
+		decrypted_data.append(output_data)
 
-	return plain_text[0:len(cipher_text)]
+	return decrypted_data

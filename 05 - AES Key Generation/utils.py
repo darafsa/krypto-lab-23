@@ -32,3 +32,26 @@ def split_data_in_blocks(data: str, block_size: int):
 # converts a string (e.g. "0110100") into binary data
 def string_to_binary(string: str, length: int):
 	return format(string, f"0{str(length)}b")
+
+
+# converts a list of blocked bytes into a string in hex representation
+def bytes_to_hex(data: list):
+	return "\n".join(" ".join(format(byte, "x").zfill(2) for byte in block) for block in data)
+
+
+# shifts array by n steps
+def shift_array(data: list, n: int):
+	return data[-n:] + data[:-n]
+
+
+# transforms a integer into a block of bytes
+def int_to_block(n: int, block_size: int):
+	return [int(format(n, 'x').zfill(32)[byte:byte + 2], 16) for byte in range(0, block_size // 4, 2)]
+
+
+# adds (xor) to blocks together byte by byte
+def xor_blocks(block1: list, block2: list):
+	output_block = [None] * len(block1)
+	for byte in range(len(block1)):
+		output_block[byte] = block1[byte] ^ block2[byte]
+	return output_block

@@ -9,9 +9,21 @@ def assert_arguments(size: int):
 		exit()
 
 
+def assert_mode(arg_id: int, modes: list):
+	if get_argument(arg_id) not in modes:
+		mode_list = ", ".join(f"'{mode}'" for mode in modes)
+		print(
+			f"Der Betriebsmodus '{get_argument(arg_id)}' ist nicht zulässig. Bitte wählen Sie einen der folgenden Betriebsmodi: {mode_list}")
+
+
 # returns a list of arguments without the leading program name argument
 def get_arguments():
 	return sys.argv[1:]
+
+
+# returns an argument at a specific position
+def get_argument(arg_id: int):
+	return get_arguments()[arg_id]
 
 
 # returns the path of the input file
@@ -25,11 +37,6 @@ def get_output_file(arg_id: int):
 		os.makedirs("out")
 
 	return f"out/{get_arguments()[arg_id]}"
-
-
-# returns the key from the command line arguments
-def get_key(arg_id: int):
-	return get_arguments()[arg_id]
 
 
 # reads a file and returns the data
