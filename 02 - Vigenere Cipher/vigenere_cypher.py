@@ -5,7 +5,7 @@ def convert_letter_to_number(char: str):
 
 
 # converts a number to an ASCII character, where 0=A and 25=Z
-def convert_number_to_letter(char: str):
+def convert_number_to_letter(char: int):
 	return chr(65 + char)
 
 
