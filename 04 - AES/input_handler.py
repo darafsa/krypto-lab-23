@@ -38,16 +38,16 @@ def read(arg_id: int):
 		return f.read()
 
 
-# reads a file from the specified path
-def read_file(path: str):
-	with open(path, "r", encoding="utf-8") as f:
-		return f.read().replace(' ', '').replace('\n', '')
-
-
 # reads a file from the specified argument
 def read_data(arg_id: int):
 	data = read(arg_id)
 	return data.replace(' ', '').replace('\n', '')
+
+
+# reads a file from the specified path
+def read_file(path: str):
+	with open(path, "r", encoding="utf-8") as f:
+		return f.read().replace(' ', '').replace('\n', '')
 
 
 # writes a file with the specified content
