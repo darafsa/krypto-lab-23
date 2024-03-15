@@ -19,23 +19,12 @@ def get_argument(arg_id: int):
 	return get_arguments()[arg_id]
 
 
-# returns the path of the input file
-def get_input_file(arg_id: int):
-	return f"res/{get_arguments()[arg_id]}"
-
-
 # returns the path of the output file
 def get_output_file(arg_id: int):
 	if not os.path.exists("out"):
 		os.makedirs("out")
 
 	return f"out/{get_arguments()[arg_id]}"
-
-
-# reads a file and returns the data
-def read(arg_id: int):
-	with open(get_input_file(arg_id), "r", encoding="utf-8") as f:
-		return f.read()
 
 
 # writes a file with the specified content
