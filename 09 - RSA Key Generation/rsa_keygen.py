@@ -1,5 +1,4 @@
 import random
-from input_handler import *
 
 
 # decomposes n into m and k, where n - 1 = 2^k * m
