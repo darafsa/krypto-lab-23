@@ -38,12 +38,6 @@ def read(arg_id: int):
 		return f.read()
 
 
-# reads a file from the specified argument
-def read_data(arg_id: int):
-	data = read(arg_id)
-	return [int(line) for line in data.split("\n")]
-
-
 # writes a file with the specified content
 def write(arg_id: int, data: str):
 	with open(get_output_file(arg_id), "w", encoding="utf-8") as f:

@@ -1,7 +1,7 @@
 import rsa_keygen
 from input_handler import *
 
-# note:		input_files need to be stored in "./res/", output_files will be generated in "./out/"
+# note:		output_files will be generated in "./out/"
 # usage: 	python generate_keys.py <length:int> <output_privat_key:str> <output_public_key:str> <output_primes:str>
 # example:	python generate_keys.py 100 "private_key.txt" "public_key.txt" "primes.txt"
 
